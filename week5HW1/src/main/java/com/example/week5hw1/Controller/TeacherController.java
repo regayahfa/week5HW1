@@ -37,7 +37,7 @@ public class TeacherController {
         return ResponseEntity.status(200).body("teacher deleted");
     }
     public ResponseEntity getDitelsById(Teacher teacher){
-        List<Teacher>teacherList=teacherServis.getDetelisById();
+        List<Teacher>teacherList=teacherServis.getAllTeacher();
         return ResponseEntity.status(200).body("good");
     }
 

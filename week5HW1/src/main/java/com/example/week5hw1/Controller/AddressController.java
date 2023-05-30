@@ -32,11 +32,11 @@ public class AddressController {
         addressSirveis.updateAddress(address,id);
         return ResponseEntity.status(200).body("adress updated");
     }
-    public ResponseEntity deleteAdress(@PathVariable Integer id){
+    public ResponseEntity deleteAdress(@PathVariable Integer id) {
         addressSirveis.deleteAddress(id);
         return ResponseEntity.status(200).body("Adress deleted");
+
+
     }
-
-
 
 }

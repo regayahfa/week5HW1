@@ -25,4 +25,6 @@ public class Address {
     @PrimaryKeyJoinColumn
     private Teacher teacher;
 
+
+
 }

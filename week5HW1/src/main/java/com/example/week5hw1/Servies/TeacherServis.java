@@ -20,11 +20,11 @@ public class TeacherServis {
     }
 
     public void addTeacher(TeacherDTO dto){
-        Teacher teacher=teacherRepostry.findAll().get(dto.getId());
+        Teacher teacher=teacherRepostry.getDetelisById(dto.getName());
         if (teacher==null){
             throw new ApiException("can not add teacher");
         }
-        Teacher teacher1=new Teacher(null,dto.getName(),dto.getId(),dto.getEmail(),teacher);
+        Teacher teacher1=new Teacher();
         teacherRepostry.save(teacher);
     }
 
@@ -51,6 +51,6 @@ public void getDetelisById(Integer id){
         if (teacher==null){
             throw new ApiException("not found");
         }
-        teacherRepostry.getDetelisById(teacher);
+        teacherRepostry.getAllById(id);
 }
 }

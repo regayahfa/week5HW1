@@ -3,8 +3,9 @@ package com.example.week5hw1.MODEL;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,12 +28,13 @@ public class Teacher {
     private String salary;
 
 @OneToOne(cascade = CascadeType.ALL,mappedBy = "Teacher")
-//    @PrimaryKeyJoinColumn
+    @PrimaryKeyJoinColumn
 @JsonIgnore
 @MapsId
     private Address address;
 //    @JsonIgnore
 
-
-
+@OneToMany(cascade = CascadeType.ALL ,mappedBy ="course" )
+@JoinColumn(name = "course", referencedColumnName = "id")
+private Set<Course>courseSet;
 }
