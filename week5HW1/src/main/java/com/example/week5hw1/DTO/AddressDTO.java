@@ -5,8 +5,10 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class TeacherDTO {
-    private Integer id;
+public class AddressDTO {
+
+    private Integer teacher_id;
     private String area;
-    private String email;
+    private String street;
+    private Integer buildingNumber;
 }

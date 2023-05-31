@@ -6,9 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TeacherRepostry extends JpaRepository<Teacher,Integer> {
-Teacher getAllById(Integer id);
+Teacher findTeacherById(Integer id);
 
-Teacher getDetelisById(String teacher);
 
 
 }

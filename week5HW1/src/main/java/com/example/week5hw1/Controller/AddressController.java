@@ -1,5 +1,6 @@
 package com.example.week5hw1.Controller;
 
+import com.example.week5hw1.DTO.AddressDTO;
 import com.example.week5hw1.MODEL.Address;
 import com.example.week5hw1.MODEL.Teacher;
 import com.example.week5hw1.Servies.AddressSirveis;
@@ -17,13 +18,14 @@ import java.util.List;
 public class AddressController {
 
     private final AddressSirveis addressSirveis;
+
     @GetMapping("/get")
-    public ResponseEntity getAllByAreaAndTeacher(){
-        List<Address>address=addressSirveis.getAllByAreaAndTeacher();
+    public ResponseEntity getAllId(){
+        List<Address>address=addressSirveis.getAll();
         return ResponseEntity.status(200).body(address);
     }
     @PostMapping("/add")
-    public ResponseEntity addAdress(@Valid @RequestBody Address address){
+    public ResponseEntity addAdress(@Valid @RequestBody AddressDTO address){
         addressSirveis.addAdress(address);
         return ResponseEntity.status(200).body("Adress added");
     }

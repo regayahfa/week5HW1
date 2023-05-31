@@ -22,23 +22,25 @@ public class TeacherController {
         return ResponseEntity.status(200).body(teacherList);
     }
     @PostMapping("/add")
-    public ResponseEntity addTeacher(@Valid @RequestBody TeacherDTO teacherDTO){
-        teacherServis.addTeacher(teacherDTO);
+    public ResponseEntity addTeacher(@Valid @RequestBody Teacher teacher){
+        teacherServis.addTeacher(teacher);
         return ResponseEntity.status(200).body("teacher added");
     }
-    @PutMapping("/update")
+    @PutMapping("/update/{ID}")
     public ResponseEntity updateTeacher(@Valid @RequestBody Teacher teacher, @PathVariable Integer ID){
-    List<Teacher> teacherList=teacherServis.getAllTeacher();
+    teacherServis.updateteacher(ID,teacher);
         return ResponseEntity.status(200).body("teacher updated");
     }
-    @PostMapping("/delete")
+    @PostMapping("/delete/{id}")
     public ResponseEntity deleteteacher(@PathVariable Integer id){
         teacherServis.deleteTeacher(id);
         return ResponseEntity.status(200).body("teacher deleted");
     }
-    public ResponseEntity getDitelsById(Teacher teacher){
-        List<Teacher>teacherList=teacherServis.getAllTeacher();
-        return ResponseEntity.status(200).body("good");
+
+    @GetMapping("/get-teacher/{id}")
+    public ResponseEntity getDitelsById(@PathVariable Integer id){
+        //List<Teacher>teacherList=teacherServis.getAllTeacher();
+        return ResponseEntity.status(200).body(teacherServis.getDetelisById(id));
     }
 
 }

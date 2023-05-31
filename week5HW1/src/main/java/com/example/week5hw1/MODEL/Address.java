@@ -15,14 +15,17 @@ import lombok.*;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer area;
+    private Integer id;
+    @Column(columnDefinition = "")
+    private String area;
     @Column(columnDefinition = "varchar(20) not null")
     private String street;
    @NotEmpty
     private Integer buildingNumber;
 
-@OneToOne(cascade = CascadeType.ALL ,mappedBy = "Address")
-    @PrimaryKeyJoinColumn
+@OneToOne
+@MapsId
+    @JsonIgnore
     private Teacher teacher;
 
 

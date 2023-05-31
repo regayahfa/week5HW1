@@ -25,7 +25,7 @@ public class CourseServis {
 
     }
     public void updateCourse(Course course,Integer id) {
-        Course course1 = courseRepostry.getReferenceById(id);
+        Course course1 = courseRepostry.getCourseById(id);
         if (course1 == null) {
             throw new ApiException("customer not found");
         }
@@ -35,18 +35,18 @@ public class CourseServis {
     }
 
     public void deleteCourse(Integer id){
-       Course course=courseRepostry.getReferenceById(id);
+       Course course=courseRepostry.getCourseById(id);
         if(course==null){
             throw new ApiException("customer not found");
         }
 
         courseRepostry.delete(course);
     }
-public void getById(Integer id, String teacher) {
-    Course course=courseRepostry.findCourseByid(teacher,id);
+public String getById(Integer id) {
+    Course course=courseRepostry.getCourseById(id);
    if (course==null){
        throw new ApiException("not found");
    }
-   courseRepostry.findCourseByid(teacher,id);
+   return course.getTeacher().getName();
 }
     }

@@ -1,11 +1,11 @@
 package com.example.week5hw1.Responsty;
 
-import com.example.week5hw1.MODEL.Address;
+import com.example.week5hw1.MODEL.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AddressRepostry  extends JpaRepository<Address,Integer> {
+public interface StudentRepostry extends JpaRepository<Student, Integer> {
 
-    Address getAddressById(Integer id);
+    Student findStudentById(Integer id);
 }

@@ -27,14 +27,12 @@ public class Teacher {
     @Column(columnDefinition = "varchar(4) not null")
     private String salary;
 
-@OneToOne(cascade = CascadeType.ALL,mappedBy = "Teacher")
+@OneToOne(cascade = CascadeType.ALL,mappedBy = "teacher")
     @PrimaryKeyJoinColumn
-@JsonIgnore
-@MapsId
     private Address address;
 //    @JsonIgnore
 
-@OneToMany(cascade = CascadeType.ALL ,mappedBy ="course" )
-@JoinColumn(name = "course", referencedColumnName = "id")
+@OneToMany(cascade = CascadeType.ALL ,mappedBy ="teacher" )
+//@JoinColumn(name = "course", referencedColumnName = "id")
 private Set<Course>courseSet;
 }

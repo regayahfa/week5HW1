@@ -43,9 +43,10 @@ public class CourseController {
 
     }
 
-    public ResponseEntity getCourseByid(@Valid @RequestBody Teacher teacher) {
-        courseServis.getAllCourse();
-return ResponseEntity.status(200).body("great");
+    @GetMapping("/get-teacher/{id}")
+    public ResponseEntity getCourseByid(@PathVariable Integer id) {
+
+     return ResponseEntity.status(200).body(courseServis.getById(id));
 
     }
 

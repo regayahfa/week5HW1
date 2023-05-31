@@ -11,23 +11,25 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Getter
 @Setter
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
-public class Course {
+@NoArgsConstructor
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotEmpty(message = "not be Empty")
+    @NotEmpty
     @Column(columnDefinition = "varchar(20)")
     private String name;
+   // @NotEmpty
+    @Column(columnDefinition = "int")
+    private Integer age;
+    @NotEmpty
+    @Column(columnDefinition = "varchar(20) ")
+    private String major;
 
-    @ManyToOne
-    @JoinColumn(name = "teacher_id",referencedColumnName ="id" )
-@JsonIgnore
-    private Teacher teacher;
-
-    @ManyToMany
-    private Set<Student>students;
+    @ManyToMany(mappedBy = "students")
+    @JsonIgnore
+    private Set<Course>courseSet;
 }
